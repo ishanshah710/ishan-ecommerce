@@ -7,7 +7,7 @@ from app.db import get_db
 
 order_router = APIRouter()
 
-@order_router.post("/", response_model=OrderResponse)
+@order_router.post("/", status_code=201, response_model=OrderResponse)
 async def create_order(
     order: OrderCreate, 
     db: AsyncSession = Depends(get_db)

@@ -6,7 +6,7 @@ from app.db import get_db
 
 product_router = APIRouter()
 
-@product_router.post("/", response_model=ProductSchema)
+@product_router.post("/", status_code=201, response_model=ProductSchema)
 async def create_product(
     product: ProductSchema, 
     db: AsyncSession = Depends(get_db)
